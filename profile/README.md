@@ -30,8 +30,9 @@ Moreover, you can also check our cool graphs that show you the data from the pas
 - Ultrasonic Sensor
 - Power Supply
 - LED Strip
-- Water Pump
+- Stepper motor
 - Wires
+- 3d printer
 
 
 ### Software Requirements
@@ -67,11 +68,22 @@ Moreover, you can also check our cool graphs that show you the data from the pas
 
 ### MSP:
 #### Build:
--
-    Connect pin #3 of MSP to pin D8 of NodeMCU
--
-    Connect pin #4 of MSP to pin RX of NodeMCU
--  Sensors connections(PLACEHOLDER):
+Libraries:
+- Adafruit_Sensor.h
+- DHT.h
+- DHT_U.h
+- Stepper.h
+- Timer.h (Included with the code)
+
+Comunication connections:
+- Connect pin #3 (rx) of MSP to pin D8 (tx) of NodeMCU 
+- Connect pin #4 (tx) of MSP to pin RX of NodeMCU
+Sensors connections on the MSP432:
+- Soil humidity analog connector -> pin #6
+- Temperature and air humidity digital -> pin #5
+- Ultrasonic sensor pins: TRIG -> #9 ECHO -> #10
+- Light controller: WHITE -> #18 BLUE/RED -> #19
+- Stepper motor: IN1 -> #24 IN2 -> 25 IN3 -> 29 IN4 -> 30
 
 #### Burn:
 -
@@ -81,7 +93,7 @@ Moreover, you can also check our cool graphs that show you the data from the pas
 ### NodeMCU:
 #### Build:
 -
-    Install ESP8266WiFi,Firebase_ESP_Client,NTPClient &         SoftwareSerial libraries.
+    Install ESP8266WiFi, Firebase_ESP_Client, NTPClient & SoftwareSerial libraries.
 
 -  Change the Wifi credentials.
     
